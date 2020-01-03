@@ -1,0 +1,24 @@
+header {
+  height: 50px;
+  line-height: 50px;
+  background-color: #000;
+
+  background-image: url('../../assets/c3logo.png');
+  background-position: 12px center;
+  background-size: auto 80%;
+  background-repeat: no-repeat;
+
+  padding-left: 70px;
+}
+
+.select-day {
+  background-color: #000;
+  border-style: none none solid none;
+  font-size: 15px;
+  color: #fff;
+  border-color: #888;
+
+  option {
+    color: #fff;
+  }
+}

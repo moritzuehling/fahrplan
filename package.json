@@ -4,7 +4,7 @@
   "description": "",
   "main": "",
   "scripts": {
-    "dev": "webpack-dev-server --port 1234 --hot",
+    "dev": "webpack-dev-server --port 1234 --hot --host 0.0.0.0",
     "build": "webpack -p"
   },
   "author": "StatsHelix, Inc.",

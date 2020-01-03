@@ -11,8 +11,9 @@ function render() {
   ReactDom.render(<MyMainEle key={MainVersion} />, document.getElementById('react-root'));
 }
 render();
-if (module && module.hot) {
-  module.hot.accept('./react/main', async function() {
+
+if (module && (module as any).hot) {
+  (module as any).hot.accept('./react/main', async function() {
     MyMainEle = (await import('./react/main')).Main;
     MainVersion++;
     render();

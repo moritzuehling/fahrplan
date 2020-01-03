@@ -1,11 +1,11 @@
 import { store } from 'react-easy-state';
 
 interface IState {
-  name: string;
+  selectedDay: number;
 };
 
 const defaultState: IState = {
-  name: '',
+  selectedDay: 0,
 };
 
 export const state = store({ ...defaultState });

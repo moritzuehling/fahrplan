@@ -1,0 +1,20 @@
+.timeline {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 40px;
+  height: 100px;
+  background-color: #000;
+}
+
+.timeline-slot {
+  font-size: 13px;
+  position: absolute;
+  left: 0;
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  border-style: solid none none none;
+  border-color: #111;
+  padding-top: 3px;
+}
