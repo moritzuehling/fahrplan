@@ -1,5 +1,6 @@
 body {
   font-family: sans-serif;
+  overflow: hidden;
 }
 
 .content {
@@ -9,4 +10,7 @@ body {
   width: 100vw;
   background-color: #222;
   overflow: auto;
+
+  padding-left: 40px;
+  box-sizing: border-box;
 }

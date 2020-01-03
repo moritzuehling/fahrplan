@@ -5,9 +5,9 @@ import { eventSchedule } from '../../state/schedule';
 import { state } from '../../state';
 import { boundMethod } from 'autobind-decorator';
 
-const MINUTE = 60 * 1000;
-const HOUR = MINUTE * 60;
-const PIXELS_PER_HOUR = 300;
+export const MINUTE = 60 * 1000;
+export const HOUR = MINUTE * 60;
+export const PIXELS_PER_HOUR = 300;
 
 export function differenceToPixel(differenceInMs: number) {
   return (PIXELS_PER_HOUR * differenceInMs / HOUR);
@@ -56,7 +56,7 @@ export class Timeline extends React.Component<ITimelineProps, ITimelineState> {
       return;
     }
     this.el!.addEventListener('scroll', this.updateScroll);
-    this.setState({ scrollTop: el.scrollTop })
+    this.updateScroll();
   }
 
   componentWillUnmount() {
@@ -106,10 +106,10 @@ export class Timeline extends React.Component<ITimelineProps, ITimelineState> {
       slots.push(<TimelineSlot start={start} time={time} key={time} />)
     }
     return (
-      <div className='timeline' aria-hidden='true' style={{ height: differenceToPixel(end - start) + 'px' }}>
+      <div className='timeline' aria-hidden='true' style={{ height: (differenceToPixel(end - start) + 25 + 25) + 'px' }}>
         { slots }
       </div>
-    )
+    );
   }
 }
 
@@ -119,7 +119,7 @@ const TimelineSlot = React.memo((function TimelineSlot(props: { start: number, t
     timeStyle: 'short'
   } as any);
   return (
-    <div className="timeline-slot" style={{ top: differenceToPixel(props.time - props.start) }} key={props.time}>
+    <div className="timeline-slot" style={{ top: 25 + differenceToPixel(props.time - props.start) }} key={props.time}>
       { format }
     </div>
   );

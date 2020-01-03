@@ -1,0 +1,39 @@
+.conference-room {
+  position: relative;
+  float: left;
+  width: 300px;
+  height: 100%;
+}
+
+.conference-room-header {
+  height: 25px;
+  line-height: 25px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-weight: normal;
+  font-weight: 20px;
+  background-color: #111;
+  color: #fff;
+}
+
+.conference-room-entries {
+  position: relative;
+}
+
+.conference-room-entry {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: calc(100% - 5px);
+  background-color: #444;
+
+  border-radius: 5px;
+  padding: 0px 5px;
+  box-sizing: border-box;
+
+  h4 {
+    margin: 0;
+    padding: 0;
+  }
+}

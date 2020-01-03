@@ -34,6 +34,7 @@ export interface IConferenceEvent {
   title: string;
   guid: string;
   start: string;
+  date: string;
   duration: string;
   room: string;
   slug: string;
