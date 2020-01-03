@@ -84,7 +84,9 @@ const Entry = React.memo((function Entry(props: { event: IConferenceEvent, daySt
   return (
     <div className="conference-room-entry" style={{ top, height }}>
       <h4>{ event.title }</h4>
-      <i>by { event.persons.map(a => a.public_name).join(', ') }</i>
+      <i>by { event.persons.map(a => a.public_name).join(', ') }</i><br />
+      <div className="abstract">{ event.abstract }</div>
+      <div className="conference-room-entry-track">{ event.track }</div>
     </div>
   );
 }));

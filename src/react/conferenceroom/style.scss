@@ -25,15 +25,42 @@
   position: absolute;
   top: 0px;
   left: 0px;
-  width: calc(100% - 5px);
+  width: calc(100% - 3px);
   background-color: #444;
+  color: #ddd;
 
   border-radius: 5px;
-  padding: 0px 5px;
+  padding: 5px;
   box-sizing: border-box;
+
+  overflow: hidden;
 
   h4 {
     margin: 0;
     padding: 0;
+    color: #fff;
+    font-size: 16px;
   }
+
+  i {
+    font-size: 14px;
+  }
+
+  .abstract {
+    margin-top: 20px;
+    font-size: 14px;
+    text-align: justify;
+  }
+}
+
+.conference-room-entry-track {
+  position: absolute;
+  left: 0px;
+  width: 100%;
+  bottom: 0px;
+  font-size: 12px;
+
+  padding: 60px 0 5px 5px;
+
+  background: linear-gradient(to bottom, rgba(#444, 0) 0%, rgba(#444, 1) 80%, rgba(#444, 1) 100%);
 }
