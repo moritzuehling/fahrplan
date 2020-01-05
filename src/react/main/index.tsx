@@ -46,7 +46,7 @@ export class Main extends React.Component<{}, IMainState> {
     if (this.timeout) {
       window.clearTimeout(this.timeout);
     }
-    this.timeout = window.setTimeout(this.scrollEnd, 200);
+    this.timeout = window.setTimeout(this.scrollEnd, 50);
   }
 
   @boundMethod
