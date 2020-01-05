@@ -6,11 +6,23 @@ body {
 .content {
   position: absolute;
   top: 50px;
-  height: calc(100vh - 50px);
   width: 100vw;
   background-color: #222;
   overflow: auto;
+  overflow-x: hidden;
 
-  padding-left: 40px;
+  height: 100vh;
+
   box-sizing: border-box;
+}
+
+.room-content {
+  position: absolute;
+  top: 0px;
+  left: 40px;
+  right: 0px;
+  height: 100%;
+
+  overflow-x: auto;
+  overflow-y: hidden;
 }

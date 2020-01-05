@@ -9,15 +9,20 @@ import { differenceToPixel, HOUR, MINUTE } from '../timeline';
 interface IConferenceDayProps {
   scrollElement: HTMLDivElement | null;
   room: string;
+  roomNum: number;
+}
+
+interface IConferenceDayState {
+  scrollTop: number;
 }
 
 @view
-export class ConferenceRoom extends React.Component<IConferenceDayProps, {}> {
+export class ConferenceRoom extends React.Component<IConferenceDayProps, IConferenceDayState> {
   el: HTMLDivElement | null = null;
   
   constructor(p, c) {
     super(p, c);
-    this.state = { contentElement: null };
+    this.state = { scrollTop: 0 };
   }
 
   componentDidMount() {
@@ -41,6 +46,9 @@ export class ConferenceRoom extends React.Component<IConferenceDayProps, {}> {
     if (el == null) {
       return;
     }
+
+    this.el?.addEventListener('scroll', this.updateScroll);
+    this.updateScroll();
   }
 
   @boundMethod
@@ -48,22 +56,26 @@ export class ConferenceRoom extends React.Component<IConferenceDayProps, {}> {
     if (!this.el) {
       return;
     }
-    
-    // todo!
-  }
 
-  @boundMethod
-  updateContentElement(el: HTMLDivElement | null) {
-    this.setState({ contentElement: el })
+    this.setState({scrollTop: this.el.scrollTop});
   }
 
   render() {
-    const dayStart = +new Date(eventSchedule.schedule.conference.days[state.selectedDay].day_start);
+    const day = eventSchedule.schedule.conference.days[state.selectedDay];
+    const dayStart = +new Date(day.day_start);
+    const dayEnd = +new Date(day.day_end);
     const room = eventSchedule.schedule.conference.days[state.selectedDay].rooms[this.props.room];
 
+    const len = (+dayEnd - +dayStart);
+
+
     return (
-      <section className="conference-room">
-        <h3 className="conference-room-header">{ this.props.room }</h3>
+      <section className="conference-room" style={{ 
+        left: (this.props.roomNum * state.elementWidth) + 'px',
+        height: (differenceToPixel(len) + 'px'),
+        width: state.elementWidth + 'px',
+      }}>
+        <h3 className="conference-room-header" >{ this.props.room }</h3>
         <div className="conference-room-entries">
           { room.map(a => <Entry key={a.guid} event={a} dayStart={dayStart} />) }
         </div>
