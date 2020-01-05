@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -23,10 +24,18 @@ module.exports = {
       from: './src/assets',
       to: './assets/'
     }]),
+    new CopyWebpackPlugin([{
+      from: './manifest.json',
+      to: './manifest.json'
+    }]),
+    new WorkboxPlugin.GenerateSW({
+      clientsClaim: true,
+      skipWaiting: true,
+    }),
     new HtmlWebpackPlugin({
       template: './src/index.html',
       inject: 'body',
-    },
+    }
   )],
   module: {
     rules: [
@@ -34,7 +43,7 @@ module.exports = {
       { test: /\.(eot|svg|woff|ttf|woff2)$/, use: 'file-loader' },
       { test: /\.(png)$/, use: 'file-loader' },
       { test: /\.scss$/, use: ['style-loader','css-loader','sass-loader'] },
-	{ test: /\.css$/, use: ['style-loader','css-loader'] },
+	    { test: /\.css$/, use: ['style-loader','css-loader'] },
     ]
   },
 

@@ -1,0 +1,16 @@
+{
+  "short_name": "Fahrplan",
+  "name": "36C3 Fahrplan",
+  "icons": [
+    {
+      "src": "/assets/c3logo.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": "/index.html",
+  "background_color": "#222222",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#222222"
+}
