@@ -24,7 +24,7 @@ export class ScheduleHeader extends React.Component {
         <select className='select-day' value={state.selectedDay} onChange={selectDay}>
           { days.map((a, i) => <option value={i} key={i}>Day {i + 1} - {getDate(a)}</option>) }
         </select>
-        <button className='fullscreen' style={{ position: 'absolute', right: '80px', height: '30px', top: '10px' }} onClick={() => (document.body.requestFullscreen || document.body['webkitRequestFullscreen'])()}>go fullscreen</button>
+    <button className='fullscreen' style={{ position: 'absolute', right: '80px', height: '30px', top: '10px' }} onClick={() => (document.body.requestFullscreen || document.body['webkitRequestFullscreen'])()}>fullscreen: { document.fullscreenEnabled ? 'true' : 'false' }</button>
       </header>
     )
   }
