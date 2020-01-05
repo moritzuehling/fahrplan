@@ -8,11 +8,11 @@ header {
   background-color: #000;
 
   background-image: url('../../assets/c3logo.png');
-  background-position: 12px center;
+  background-position: calc(12px + env(safe-area-inset-top)) center;
   background-size: auto 80%;
   background-repeat: no-repeat;
 
-  padding-left: 70px;
+  padding-left: calc(70px + env(safe-area-inset-top));
 }
 
 .select-day {
